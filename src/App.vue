@@ -1,10 +1,14 @@
 <template>
   <!-- <nav>
-    <router-link to="/">Home</router-link> |
+    
   </nav> -->
   <router-view />
 </template>
-
+<script>
+export default {
+  
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -24,6 +28,8 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #00381c;
+  background-color: darkgray;
+  font-size: 30px;
 }
 </style>
