@@ -3,31 +3,41 @@ import axios from "axios"
 
 export default createStore({
   state: {
-    users: []
+    users: null,
+    products: null
   },
   getters: {
-    retUsers : state => state.users
+    // Users
+    // Can be use for filter, passing values
+    getUsers : state => state.users,
+    // Products
+    getProducts : state => state.products
   },
   mutations: {
     // Based on the synchronous approach
-    setUsers(state, payload) {
-      state.users.push(payload);
+    setUsers(state, users) {
+      state.users = users
     }
   },
   actions: {
-    async fetchUsers( {commit}){
-      try{
-        const userData = await axios.get(" http://localhost:3000/users");
-        console.log(userData.data);
-        commit('SET_USERS', userData.data);
-      }catch(e) {
-        console.log(e.message);
-      }
+
+    // async fetchUsers( {commit}){
+    //   try{
+    //     const userData = await axios.get(`http://localhost:3000/users`);
+    //     commit('setUsers', userData.data);
+    //   }catch(e) {
+    //     console.log(e.message);
+    //   }
+    // }
+    login: async ({commit}, payload) => {
+      const {email, password} = payload;
+      const res = await fetch(`http://localhost:3000/users?email=${email}&password=${password}`);
+
+      const data = await res.json();
+      commit('setUsers', data);
     }
   },
   modules: {
-    SET_USERS(state, users) {
-      state.users = users
-    }
+
   }
 })

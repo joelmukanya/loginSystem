@@ -1,21 +1,21 @@
 <template>
   <fieldset>
     <legend class="display-2 bg-gradient bg-dark text-white">Login</legend>
-    <form class="form container">
+    <form class="form container" @submit.prevent="login">
         <div class="row">
             <label class="col-md-4">Email: </label>
-            <input type="text" placeholder="Enter your email" class="col-md-6"/>
+            <input type="text" v-model="email" placeholder="Enter your email" class="col-md-6"/>
         </div>
         <div class="row my-3">
             <label class="col-md-4">Password: </label>
-            <input type="password" placeholder="Enter your password" class="col-md-6"/>
+            <input type="password" v-model="password" placeholder="Enter your password" class="col-md-6"/>
         </div>
         <div class="row bg-gradient">
             <span class="col-md-4"></span>
             <button class="col-md-6 btn btn-primary rounded align-self-end">Login</button>
         </div>
-        <div v-for="(user, i) in currentData" :key="i">
-          <p>{{user.firstname}} {{user.surname}} </p>
+        <div v-if="users">
+          <p class="lead">You're welcome {{users.firstname}} {{users.surname}} to our app</p>
         </div>
     </form>
   </fieldset>
@@ -23,18 +23,24 @@
 
 <script>
 export default {
-  data(){
-    return {
-      currentData: []
+  computed: {
+    users() {
+      return this.$store.state.users
     }
   },
-  components: {},  
-  methods: {
-    display() {}
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
   },
-  mounted(){
-    this.currentData = this.$store.getters;
-    console.log(this.currentData);
+  methods: {
+    login() {
+      this.$store.dispatch('login', {
+        email: this.email,
+        password: this.password
+      })
+    }
   }
 }
 </script>
