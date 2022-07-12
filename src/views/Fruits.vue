@@ -1,13 +1,14 @@
 <template>
   <div class="home">
-    <p class="lead">Home</p>
+    <h2 class="display-2">List of fruits</h2>
+    
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'HomeView',
+  name: 'Fruits',
   components: {}
 }
 </script>
