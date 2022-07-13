@@ -2,10 +2,12 @@
   <HeaderComponent/>
   <div class="home">
     <h2 class="display-2">Fruits</h2>
-    <div class="card" style="width: 18rem;" v-for="fruit in fruits" :key="fruit.id">
-      <img :src="fruit.profile" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p class="card-text">{{fruit.name}}</p>
+    <div class="card-wrapper">
+      <div class="card my-3" v-for="fruit in fruits" :key="fruit.id">
+        <img :src="fruit.photoUrl" class="card-img-top img-fluid" :alt="fruit.name">
+        <div class="card-body">
+          <p class="card-text">{{fruit.name}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -23,7 +25,7 @@ export default {
   },
   data() {
     return {
-      id: null,
+      id: 0,
       name: '',
       photo: ''
     }
@@ -38,6 +40,9 @@ export default {
         photo: this.photo
       })
     }
+  },
+  mounted() {
+    this.fetchFruits()
   }
 
 }

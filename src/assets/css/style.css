@@ -17,3 +17,21 @@ fieldset {
     width: fit-content;
     margin: 10px auto;
 }
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;    
+}
+
+/* card for medium > */
+@media screen and (min-width: 600px) {
+    .card {
+        width: max-content;
+        border-radius: 10px;
+        box-shadow: 1vw 2vw 1vw rgba(95, 121, 121, 0.7);
+    }
+    .card img {
+        width: 16rem;
+        object-fit: cover;
+    }
+}

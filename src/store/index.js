@@ -56,7 +56,6 @@ export default createStore({
     fetchFruits: async ({commit}) => {
       const res = await fetch("http://localhost:3000/fruits");
       const data = await res.json();
-      console.log(data);
       commit('setFruits', data);
     }
   },
