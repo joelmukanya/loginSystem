@@ -1,35 +1,37 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "firstname": "Joel",
-            "surname": "Mukanya",
-            "profile": "https://i.postimg.cc/rwL322fD/joel3.jpg",
-            "email": "joel@gmail.com",
-            "password": "joel"
-        }
-    ],
-    "fruits": [
-        {
-            "id": 1,
-            "name": "Mango",
-            "photoUrl": "https://i.postimg.cc/1tSbdTjV/mango.jpg"
-        },
-        {
-            "id": 2,
-            "name": "Apple",
-            "photoUrl": "https://i.postimg.cc/tRsWnTTJ/apple.jpg"
-        },
-        {
-            "id": 3,
-            "name": "Pineapple",
-            "photoUrl": "https://i.postimg.cc/qqbYz7M2/pineapple.jpg"
-        },
-        {
-            "id": 4,
-            "name": "Orange",
-            "photoUrl": "https://i.postimg.cc/vBvCwzJq/orange.jpg"
-        }
-    ]
-
+  "users": [
+    {
+      "id": 1,
+      "firstname": "Joel",
+      "surname": "Mukanya",
+      "profile": "https://i.postimg.cc/rwL322fD/joel3.jpg",
+      "email": "joel@gmail.com",
+      "password": "joel"
+    },
+    {
+      "id": 2
+    }
+  ],
+  "fruits": [
+    {
+      "id": 1,
+      "name": "Mango",
+      "photoUrl": "https://i.postimg.cc/1tSbdTjV/mango.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Apple",
+      "photoUrl": "https://i.postimg.cc/tRsWnTTJ/apple.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Pineapple",
+      "photoUrl": "https://i.postimg.cc/qqbYz7M2/pineapple.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Orange",
+      "photoUrl": "https://i.postimg.cc/vBvCwzJq/orange.jpg"
+    }
+  ]
 }

@@ -57,6 +57,26 @@ export default createStore({
       const res = await fetch("http://localhost:3000/fruits");
       const data = await res.json();
       commit('setFruits', data);
+    },
+    signUp: async ({commit}, playload) =>{
+      const requestStr = {
+        method: 'POST',
+        body: JSON.stringify({
+          firstname: playload.firstname,
+          surname: playload.surname,
+          profile: playload.profile,
+          email: playload.email,
+          password: playload.password
+        }), 
+        headers: {
+          'content-type': 'application/json; charset-UTF-8'
+        }
+      };
+      const res = await fetch("http://localhost:3000/users", requestStr);
+      const data = await res.json();
+      console.log(data);
+      // commit('setUsers', data);
+      // 
     }
   },
   modules: {

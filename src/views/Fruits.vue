@@ -1,5 +1,5 @@
 <template>
-  <HeaderComponent/>
+  <HeaderComponent />
   <div class="home">
     <h2 class="display-2">Fruits</h2>
     <div class="card-wrapper">
@@ -19,6 +19,9 @@ import HeaderComponent from './header/Header.vue'
 export default {
   name: 'Fruits',
   computed: {
+    users() {
+      return this.$store.state.fruits
+    },
     fruits() {
       return this.$store.state.fruits
     }
