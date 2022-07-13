@@ -39,7 +39,9 @@ import HeaderComponent from '../header/Header.vue'
 
 export default {
   computed: {
-    
+    user(){
+      return this.$store.state.user
+    }
   },
   data() {
     return {

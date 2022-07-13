@@ -6,14 +6,12 @@ import router from '@/router'
 export default createStore({
   state: {
     user: null,
-    error: '',
     fruits: null
   },
   getters: {
     // Users
     // Can be use for filter, passing values
-    getUsers : state => state.user,
-    getError: state => state.error,
+    getUser : state => state.user,
     // Products
     getFruits : state => state.fruits
 
@@ -23,11 +21,8 @@ export default createStore({
     setUser(state, user) {
       state.user = user
     },
-    setFruits(state, fruit) {
-      state.fruits = fruit
-    },
-    setError(state, error) {
-      state.error = error
+    setFruits(state, fruits) {
+      state.fruits = fruits
     }
   },
   actions: {
@@ -52,7 +47,6 @@ export default createStore({
         context.commit('setError', 'Please register !!!!');
         router.push({name: "register"});
       }
-
     },
     // Fetching fruits
     fetchFruits: async (context) => {
@@ -62,24 +56,22 @@ export default createStore({
     },
     // For Register
     signUp: async (context, playload) =>{
-      const requestStr = {
+      const {firstname, surname, profile, email, password} = playload;
+      const res = await fetch("http://localhost:3000/users", {
         method: 'POST',
         body: JSON.stringify({
-          firstname: playload.firstname,
-          surname: playload.surname,
-          profile: playload.profile,
-          email: playload.email,
-          password: playload.password
+          firstname: firstname,
+          surname: surname,
+          profile: profile,
+          email: email,
+          password: password
         }), 
         headers: {
           'content-type': 'application/json; charset-UTF-8'
-        }
-      };
-      const res = await fetch("http://localhost:3000/users", requestStr);
+        },
+      });
       const data = await res.json();
-      console.log(data);
-      // context.commit('setUsers', data);
-      // 
+      context.commit('setUser', data);
     }
   },
   modules: {

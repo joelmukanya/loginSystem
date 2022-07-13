@@ -7,14 +7,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <router-link to="/fruits">Fruits</router-link> |
+                        <router-link class="h4" to="/fruits">Fruits</router-link> |
                     </li>
                 </ul>
-                <div v-if="!user">
-                    <router-link to="/">Login</router-link>
+                <div v-if="!user" class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <router-link class="h4" to="/">Login</router-link>
+                    </li>
                 </div>
                 <div v-else>
-                    Welcome {{user.firstname}}
+                    <div>
+                        <span class="lead me-3">Welcome {{user.firstname}} {{user.surname}}</span>
+                        <img id="login-profile" class="img-fluid" :src="user.profile" :alt="user.firstname"/>
+                    </div>
                 </div>
             </div>
         </div>
@@ -33,6 +38,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    #login-profile{
+        width: 5vw;
+        border-radius: 5px;
+        object-fit: cover;
+        box-shadow: 1vw 2vw 2vw rgba(61, 109, 98, 0.7);
+    }
 </style>

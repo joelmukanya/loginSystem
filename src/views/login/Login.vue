@@ -4,7 +4,7 @@
     <form class="form container" @submit.prevent="login">
         <div class="row">
             <label class="form-label bg-gradient">Email: </label>
-            <input type="text" required v-model="email" placeholder="Enter your email" class="form-control"/>
+            <input type="email" required v-model="email" placeholder="Enter your email" class="form-control"/>
         </div>
         <div class="row my-3">
             <label class="form-label bg-gradient">Password: </label>
@@ -30,16 +30,13 @@ export default {
   computed: {
     users() {
       return this.$store.state.users
-    },
-    error() {
-      return this.$store.state.error
-    },
-    JTProfile() {
-      return this.$store.state.users.profile
     }
   },
   data() {
     return {
+      firstname: '',
+      surname: '',
+      profile: '',
       email: '',
       password: ''
     }
@@ -53,6 +50,9 @@ export default {
     },
     signUp() {
       this.$store.dispatch('sign', {
+        firstname: this.firstname,
+        surname: this.surname,
+        profile: this.profile,
         email: this.email,
         password: this.password
       })
