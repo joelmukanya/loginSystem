@@ -52,12 +52,11 @@ export default {
       })
     },
     signUp() {
-      this.$store.dispatch('signUp', {
+      this.$store.dispatch('sign', {
         email: this.email,
         password: this.password
       })
     }
-
   }
 }
 </script>

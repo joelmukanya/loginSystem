@@ -20,7 +20,7 @@ export default {
   name: 'Fruits',
   computed: {
     users() {
-      return this.$store.state.fruits
+      return this.$store.state.users
     },
     fruits() {
       return this.$store.state.fruits
@@ -32,20 +32,15 @@ export default {
       name: '',
       photo: ''
     }
-
   },
   components: {HeaderComponent},
-  methods: {
-    fetchFruits() {
-      this.$store.dispatch('fetchFruits', {
-        id: this.id,
-        name: this.name,
-        photo: this.photo
-      })
-    }
-  },
   mounted() {
-    this.fetchFruits()
+    // this.fetchFruits()
+    this.$store.dispatch('fetchFruits', {
+      id: this.id,
+      name: this.name,
+      photo: this.photo
+    })
   }
 
 }

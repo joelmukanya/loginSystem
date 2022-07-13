@@ -5,14 +5,14 @@ import router from '@/router'
 
 export default createStore({
   state: {
-    users: null,
+    user: null,
     error: '',
     fruits: null
   },
   getters: {
     // Users
     // Can be use for filter, passing values
-    getUsers : state => state.users,
+    getUsers : state => state.user,
     getError: state => state.error,
     // Products
     getFruits : state => state.fruits
@@ -20,11 +20,11 @@ export default createStore({
   },
   mutations: {
     // Based on the synchronous approach
-    setUsers(state, users) {
-      state.users = users
+    setUser(state, user) {
+      state.user = user
     },
-    setFruits(state, fruits) {
-      state.fruits = fruits
+    setFruits(state, fruit) {
+      state.fruits = fruit
     },
     setError(state, error) {
       state.error = error
@@ -40,25 +40,28 @@ export default createStore({
     //     console.log(e.message);
     //   }
     // }
-    login: async ({commit}, payload) =>  {
+    // For login
+    login: async (context, payload) =>  {
       const {email, password} = payload;
       const res = await fetch(`http://localhost:3000/users?email=${email}&password=${password}`);
       const data = await res.json();
       if(data.length) {
-        commit('setUsers', data);
+        context.commit('setUser', data[0]);
         router.push({name: "fruits"});
       }else {
-        commit('setError', 'Please register !!!!');
+        context.commit('setError', 'Please register !!!!');
         router.push({name: "register"});
       }
 
     },
-    fetchFruits: async ({commit}) => {
+    // Fetching fruits
+    fetchFruits: async (context) => {
       const res = await fetch("http://localhost:3000/fruits");
       const data = await res.json();
-      commit('setFruits', data);
+      context.commit('setFruits', data);
     },
-    signUp: async ({commit}, playload) =>{
+    // For Register
+    signUp: async (context, playload) =>{
       const requestStr = {
         method: 'POST',
         body: JSON.stringify({
@@ -75,7 +78,7 @@ export default createStore({
       const res = await fetch("http://localhost:3000/users", requestStr);
       const data = await res.json();
       console.log(data);
-      // commit('setUsers', data);
+      // context.commit('setUsers', data);
       // 
     }
   },

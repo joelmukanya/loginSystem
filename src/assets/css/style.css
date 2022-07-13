@@ -23,6 +23,7 @@ fieldset {
     justify-content: space-evenly;    
 }
 
+
 /* card for medium > */
 @media screen and (min-width: 600px) {
     .card {

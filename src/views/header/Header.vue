@@ -9,10 +9,13 @@
                     <li class="nav-item">
                         <router-link to="/fruits">Fruits</router-link> |
                     </li>
-                    <li class="nav-item">
-                        <p class="lead">{{ users.firstname }}</p>
-                    </li>
                 </ul>
+                <div v-if="!user">
+                    <router-link to="/">Login</router-link>
+                </div>
+                <div v-else>
+                    Welcome {{user.firstname}}
+                </div>
             </div>
         </div>
     </nav>
@@ -20,9 +23,10 @@
 
 <script>
 export default {
+
     computed: {
-        users() {
-            return this.$store.state.users
+        user() {
+            return this.$store.state.user
         }
     }
 
