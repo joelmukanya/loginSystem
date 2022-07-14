@@ -1,5 +1,4 @@
 <template>
-  <HeaderComponent />
   <div class="home">
     <h2 class="display-2">Fruits</h2>
     <div class="card-wrapper" v-if="user">
@@ -17,8 +16,6 @@
 </template>
 
 <script>
-import HeaderComponent from './header/Header.vue'
-
 export default {
   name: 'Fruits',
   computed: {
@@ -36,7 +33,6 @@ export default {
       photo: ''
     }
   },
-  components: {HeaderComponent},
   mounted() {
     // Fruits
     this.$store.dispatch('fetchFruits', {

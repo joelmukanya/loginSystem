@@ -1,12 +1,22 @@
 <template>
-  <!-- <nav>
-    
-  </nav> -->
+  <div v-if="user">
+    <HeaderComponent/>
+  </div>
   <router-view />
 </template>
 <script>
+import HeaderComponent from './views/header/Header.vue'
+
 export default {
-  
+  computed: {
+    user() {
+      return this.$store.state.user
+    }
+  },
+  components: {
+    HeaderComponent,
+  }
+
 }
 </script>
 <style>

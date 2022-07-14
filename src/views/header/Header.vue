@@ -18,6 +18,9 @@
                         <li class="nav-item">
                             <router-link class="h4" to="/fruits">Fruits</router-link> |
                         </li>
+                        <li class="nav-item">
+                            <router-link class="h4" to="/admin">Admin</router-link> |
+                        </li>
                     </ul>
                     <div>
                         <span class="lead me-3">Welcome {{user.firstname}} {{user.surname}}</span>
