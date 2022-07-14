@@ -7,6 +7,14 @@
       "profile": "https://i.postimg.cc/rwL322fD/joel3.jpg",
       "email": "joel@gmail.com",
       "password": "joel"
+    },
+    {
+      "firstname": "Sarah",
+      "surname": "Mukanya",
+      "profile": "https://i.postimg.cc/15ssZG6W/11.jpg",
+      "email": "sarah@gmail.com",
+      "password": "sarah",
+      "id": 2
     }
   ],
   "fruits": [

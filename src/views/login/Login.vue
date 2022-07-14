@@ -47,15 +47,6 @@ export default {
         email: this.email,
         password: this.password
       })
-    },
-    signUp() {
-      this.$store.dispatch('sign', {
-        firstname: this.firstname,
-        surname: this.surname,
-        profile: this.profile,
-        email: this.email,
-        password: this.password
-      })
     }
   }
 }

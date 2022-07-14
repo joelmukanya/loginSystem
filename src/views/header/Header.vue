@@ -5,17 +5,20 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <router-link class="h4" to="/fruits">Fruits</router-link> |
-                    </li>
-                </ul>
-                <div v-if="!user" class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <router-link class="h4" to="/">Login</router-link>
-                    </li>
+                <div v-if="!user" class="d-flex flex-wrap w-100">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <router-link class="h4" to="/fruits">Fruits</router-link> |
+                        </li>
+                    </ul>
+                    <router-link class="h4" to="/">Login</router-link>
                 </div>
-                <div v-else>
+                <div v-else class="d-flex flex-wrap w-100">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <router-link class="h4" to="/fruits">Fruits</router-link> |
+                        </li>
+                    </ul>
                     <div>
                         <span class="lead me-3">Welcome {{user.firstname}} {{user.surname}}</span>
                         <img id="login-profile" class="img-fluid" :src="user.profile" :alt="user.firstname"/>
